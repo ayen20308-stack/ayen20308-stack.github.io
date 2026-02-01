@@ -372,6 +372,33 @@ h2{
     from{transform:scale(1.05);}
     to{transform:scale(1);}
 }
+/* CTA nhịp tim – thu hút click */
+.cta-pulse{
+    animation:pulse 1.8s infinite;
+}
+
+/* CTA phát sáng nhẹ */
+.cta-glow{
+    animation:glow 2.2s infinite;
+}
+
+/* Hiệu ứng */
+@keyframes pulse{
+    0%{transform:scale(1); box-shadow:0 0 0 rgba(0,0,0,0);}
+    50%{transform:scale(1.06); box-shadow:0 0 25px rgba(0,104,255,0.6);}
+    100%{transform:scale(1);}
+}
+
+@keyframes glow{
+    0%{box-shadow:0 0 5px rgba(34,158,217,0.3);}
+    50%{box-shadow:0 0 25px rgba(34,158,217,0.8);}
+    100%{box-shadow:0 0 5px rgba(34,158,217,0.3);}
+}
+
+/* Hover thêm lực */
+.hero-contact a:hover{
+    transform:scale(1.08);
+}
 
 </style>
 </head>
@@ -383,10 +410,7 @@ h2{
         <h1>MUA BÁN <span>GMAIL NEW VN</span></h1>
         <p>Uy tín – Chất lượng – Gmail New 100% chưa qua sử dụng</p>
 
-        <div class="hero-contact">
-            <a href="https://zalo.me/0904729700" class="zalo">Zalo: 0904 729 700</a>
-            <a href="https://t.me/railink36vip" class="tele">Telegram: @railink36vip</a>
-        </div>
+        hero-contact
     </div>
 </div>
 <div class="container">
