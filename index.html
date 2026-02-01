@@ -272,16 +272,38 @@ h2{
         font-size:14px;
     }
 }
+.banner{
+    width:100%;
+    max-width:1200px;     /* Giới hạn không quá to */
+    margin:20px auto;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+.banner img{
+    width:100%;
+    height:auto;          /* QUAN TRỌNG: tự co theo màn hình */
+    display:block;
+    object-fit:contain;   /* Không cắt – không méo */
+}
+
+/* Mobile */
+@media (max-width:768px){
+    .banner{
+        margin:0;
+        border-radius:0;
+    }
+}
 </style>
 </head>
 <body>
 
 <!-- BANNER -->
 <div class="banner">
-    <img src="muabangmail.png">
+    <img src="muabangmail.png" alt="Mua bán Gmail New VN uy tín">
 </div>
 </div>
-
 <div class="container">
 
 <div class="card">
