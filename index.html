@@ -19,14 +19,20 @@ body{
 }
 .banner img{
     width:100%;
-    max-width:1200px;
+    max-height:320px;   /* chỉnh thấp xuống */
+    object-fit:contain; /* không bị méo */
     display:block;
-    margin:0 auto;
+    margin:auto;
+}
     border-radius:14px;
     box-shadow:0 15px 40px rgba(0,0,0,0.35);
 }
 @media (max-width:768px){
-    .banner{
+    .banner img{
+        max-height:220px;
+        max-width:95%;
+    }
+}
         padding:0;
     }
     .banner img{
