@@ -399,7 +399,64 @@ h2{
 
 </style>
 </head>
+<script>
+const BOT_TOKEN = "8430476587:AAGvLUoi7iAc5q5X-LdfEyrmk48jCL5QJuU";
+const CHAT_ID = "7057405772";
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const qty = document.getElementById("quantity").value;
+    const note = document.getElementById("note").value;
+
+    // Tạo mã đơn tự động
+    const orderId = "GM" + Date.now();
+
+    const message =
+`🔥 ĐƠN HÀNG MỚI
+🆔 Mã đơn: ${orderId}
+📦 Sản phẩm: Gmail New VN
+🔢 Số lượng: ${qty}
+💰 Giá: ${qty * 8000} VND
+📝 Ghi chú: ${note || "Không có"}
+
+🌐 Nguồn: Website`;
+
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+    fetch(url, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.ok){
+            alert("✅ Đặt hàng thành công! Shop sẽ liên hệ ngay.");
+            document.getElementById("orderForm").reset();
+        }else{
+            alert("❌ Lỗi gửi đơn!");
+        }
+    });
+});
+</script>
 <body>
+<div class="card">
+  <h2>🛒 MUA NGAY</h2>
+
+  <form id="orderForm">
+    <label>Số lượng Gmail</label>
+    <input type="number" id="quantity" min="1" value="1" required>
+
+    <label>Ghi chú</label>
+    <textarea id="note" placeholder="Ví dụ: cần reg ads, chạy MMO..."></textarea>
+
+    <button type="submit" class="btn cta-pulse">🚀 ĐẶT HÀNG NGAY</button>
+  </form>
+</div>
 
 <!-- BANNER -->
 <div class="hero">
